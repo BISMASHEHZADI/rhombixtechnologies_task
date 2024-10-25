@@ -1,0 +1,194 @@
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome -->
+    <style>
+        body {
+            background-image: url('https://img.freepik.com/free-photo/black-prism-concept-ai-generated_268835-7011.jpg?w=900&t=st=1728815291~exp=1728815891~hmac=11943d2c0a96f0967ab9b67a6974e68af959b6a054e5d7d9d7a91ddfc6d7a505');
+            background-size: cover; 
+            background-position: center; 
+            font-family: 'Arial', sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            height: 100vh; /* Full height of the viewport */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 35px 50px;
+            background-color: #111;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: #1DB954;
+        }
+
+        .form-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input, textarea {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #bbb;
+        }
+
+        button {
+            background-color: #1DB954;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #14833b;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+            }
+
+            .form-container {
+                width: 90%;
+            }
+        }
+                 /* Footer Styling */
+    footer {
+        background-color: #111;
+        padding: 20px;
+        text-align: center;
+        color: #aaa;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    footer a {
+        color: #aaa;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+        color: #1DB954;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+ 
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">BISMA SHEHZADI.</div>
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}">Services</a></li>
+            <li><a href="{% url 'project' %}">Work</a></li>
+            <li><a href="{% url 'Commant_view' %}">Contact</a></li>
+        </ul>
+        <div class="social-media-icons">
+            <a href="https://github.com/yourgithubprofile" target="_blank">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+        </div>
+    </nav>
+    
+
+    <!-- Contact Form -->
+    <div class="form-container">
+        <h2>Contact</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="email" name="email" placeholder="example@gmail.com" required>
+            <textarea name="message" rows="4" placeholder="Write your message..." required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+</body>
+<footer>
+    <p>&copy; 2024 Bisma Shehzadi</p>
+    <div class="social-media-icons">
+        <a href="https://www.linkedin.com/in/bisma-shehzadi-09671331b/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61557003035874" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        
+        <a href="https://github.com/BISMASHEHZADI" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+</footer>
+
+
+</html>
+{% endblock content %}
